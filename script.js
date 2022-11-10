@@ -7,63 +7,71 @@ window.onload = function () {
         yourScoreDiv = document.getElementById("yourScoreDiv"),
         AIScoreDiv = document.getElementById("AIScoreDiv"),
         infoBox = document.getElementById("infoBox"),
-        round = 1, yourScore = 0, AIScore = 0, 
+        yourScore = 0, AIScore = 0, round = 1,
         playerChoice = 0, AIChoice = 0, rock = 1, paper = 2, scissors = 3;
 
-    /*startButton.onclick = () => {
-        while (true){
-            if (round <= 3) {
-                roundTitle.innerHTML = "Round " + round + "!";
-                yourScoreDiv.innerHTML = yourScore;
-                AIScoreDiv.innerHTML = AIScore;
-                infoBox.innerHTML = "Choose rock, paper of scissors."
+    startButton.onclick = () => {
+        roundTitle.innerHTML = "Round " + round + "!";
+        yourScoreDiv.innerHTML = yourScore;
+        AIScoreDiv.innerHTML = AIScore;
+        infoBox.innerHTML = "Choose rock, paper of scissors."
+        rockButton.addEventListener("click", rockButtonClickFunction)
+        paperButton.addEventListener("click", paperButtonClickFunction)
+        scissorsButton.addEventListener("click", scissorsButtonClickFunction)
+    }
 
-            }
-            else {
-                resetGame();
-                break;
-            }
-            round++;
-        }
-    }*/
-
-    rockButton.onclick = () => {
+    function rockButtonClickFunction () {
         AIChoice = Math.ceil(Math.random() * 3);
         playerChoice = 1;
         if(AIChoice === 2){
             infoBox.innerHTML = "You Lose!";
+            AIScore++;
+            giveScores();
         }
         else if(AIChoice === 3){
             infoBox.innerHTML = "You Win!";
+            yourScore++;
+            giveScores();
         }
         else {
             infoBox.innerHTML = "Try Again!";
+            giveScores();
         }
     }
-    paperButton.onclick = () => {
+    function paperButtonClickFunction () {
         AIChoice = Math.ceil(Math.random() * 3);
         playerChoice = 2;
         if(AIChoice === 1){
             infoBox.innerHTML = "You Win!";
+            yourScore++;
+            giveScores();
         }
         else if(AIChoice === 3){
             infoBox.innerHTML = "You Lose!";
+            AIScore++;
+            giveScores();
         }
         else {
             infoBox.innerHTML = "Try Again!";
+            giveScores();
         }
     }
-    scissorsButton.onclick = () => {
+    function scissorsButtonClickFunction () {
         AIChoice = Math.ceil(Math.random() * 3);
         playerChoice = 3;
         if(AIChoice === 1){
             infoBox.innerHTML = "You Lose!";
+            AIScore++;
+            giveScores();
         }
         else if(AIChoice === 2){
             infoBox.innerHTML = "You Win!";
+            yourScore++;
+            giveScores();
         }
         else {
             infoBox.innerHTML = "Try Again!";
+            giveScores();
         }
     }
 
@@ -74,5 +82,10 @@ window.onload = function () {
         yourScoreDiv.innerHTML = null;
         AIScoreDiv.innerHTML = null;
         roundTitle.innerHTML = "Round ";
+    }
+
+    function giveScores(){
+        yourScoreDiv.innerHTML = yourScore;
+        AIScoreDiv.innerHTML = AIScore;
     }
 }
