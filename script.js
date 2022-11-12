@@ -9,7 +9,7 @@ window.onload = function () {//when the page loads, run the code
         scissorsButton = document.getElementById("scissorsButton"),
         yourScoreDiv = document.getElementById("yourScoreDiv"),
         AIScoreDiv = document.getElementById("AIScoreDiv"),
-        infoBox = document.getElementById("infoBox"),
+        resultsBox = document.getElementById("resultsBox"),
         rock = 1, paper = 2, scissors = 3;
 
     startButton.onclick = () => { //Sets the initial scores and round for the beginning of the game, and also sets functions to each button
@@ -17,7 +17,7 @@ window.onload = function () {//when the page loads, run the code
         roundTitle.innerHTML = "Round " + round + "!";
         yourScoreDiv.innerHTML = "Player score: " + yourScore;
         AIScoreDiv.innerHTML = "AI Score: " + AIScore;
-        infoBox.innerHTML = "Choose rock, paper of scissors."
+        resultsBox.innerHTML = "Choose rock, paper of scissors."
         rockButton.addEventListener("click", rockButtonClickFunction) //creates a click listener for the rock button
         paperButton.addEventListener("click", paperButtonClickFunction)//creates a click listener for the paper button
         scissorsButton.addEventListener("click", scissorsButtonClickFunction)//creates a click listener for the scissors button
@@ -31,17 +31,17 @@ window.onload = function () {//when the page loads, run the code
         AIChoice = Math.ceil(Math.random() * 3);//generates a random number between one and three and rounds up, where the number dictates if the computer chooses rock, paper or scissors
         playerChoice = rock;
         if(AIChoice === paper){
-            infoBox.innerHTML = "You chose rock. Paper beats rock so you lose the round!";
+            resultsBox.innerHTML = "You chose rock. Paper beats rock so you lose the round!";
             AIScore++;
             giveScores();
         }
         else if(AIChoice === scissors){
-            infoBox.innerHTML = "You chose rock. Rock beats scissors so you win the round!";
+            resultsBox.innerHTML = "You chose rock. Rock beats scissors so you win the round!";
             yourScore++;
             giveScores();
         }
         else {
-            infoBox.innerHTML = "You both chose rock. Try Again!";
+            resultsBox.innerHTML = "You both chose rock. Try Again!";
             giveScores();
         }
     }
@@ -49,17 +49,17 @@ window.onload = function () {//when the page loads, run the code
         AIChoice = Math.ceil(Math.random() * 3);
         playerChoice = paper;
         if(AIChoice === rock){
-            infoBox.innerHTML = "You chose paper. Paper beats rock so you win the round!";
+            resultsBox.innerHTML = "You chose paper. Paper beats rock so you win the round!";
             yourScore++;
             giveScores();
         }
         else if(AIChoice === scissors){
-            infoBox.innerHTML = "You chose paper. Scissors beats paper so you lose the round!";
+            resultsBox.innerHTML = "You chose paper. Scissors beats paper so you lose the round!";
             AIScore++;
             giveScores();
         }
         else {
-            infoBox.innerHTML = "You both chose paper. Try Again!";
+            resultsBox.innerHTML = "You both chose paper. Try Again!";
             giveScores();
         }
     }
@@ -67,17 +67,17 @@ window.onload = function () {//when the page loads, run the code
         AIChoice = Math.ceil(Math.random() * 3);
         playerChoice = scissors;
         if(AIChoice === rock){
-            infoBox.innerHTML = "You chose scissors. Rock beats scissors so you lose the round!";
+            resultsBox.innerHTML = "You chose scissors. Rock beats scissors so you lose the round!";
             AIScore++;
             giveScores();
         }
         else if(AIChoice === paper){
-            infoBox.innerHTML = "You chose scissors. Scissors beats paper so you win the round!";
+            resultsBox.innerHTML = "You chose scissors. Scissors beats paper so you win the round!";
             yourScore++;
             giveScores();
         }
         else {
-            infoBox.innerHTML = "You both chose scissors. Try Again!";
+            resultsBox.innerHTML = "You both chose scissors. Try Again!";
             giveScores();
         }
     }
@@ -88,11 +88,11 @@ window.onload = function () {//when the page loads, run the code
         AIScoreDiv.innerHTML = "AI Score: " + AIScore;
         if (round >= 2){
             if(yourScore === 2){//if it's the third round you scored is higher than the AI's, you win
-                infoBox.innerHTML += "<br>" + " You win the game!";
+                resultsBox.innerHTML += "<br>" + " You win the game!";
                 buttonsOff();
             }
             else if(AIScore === 2){//if it's the third round and your score is lower than the AI's, you lose
-                infoBox.innerHTML += "<br>" + " You lose the game!";
+                resultsBox.innerHTML += "<br>" + " You lose the game!";
                 buttonsOff();
             }
         }
@@ -106,7 +106,7 @@ window.onload = function () {//when the page loads, run the code
         yourScoreDiv.innerHTML = null;
         AIScoreDiv.innerHTML = null;
         roundTitle.innerHTML = "Round ";
-        infoBox.innerHTML = null;
+        resultsBox.innerHTML = null;
         buttonsOff();
     }
 

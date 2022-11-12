@@ -5,22 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors Game!</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
 </head>
 <body>
-    <div id="welcome">Welcome to my first Rock, Paper, Scissors Game!</div>
-    <div id="welcomeInfo">This game is to show case my javascript abilities that I have learned thus far. Hope you enjoy!</div>
-    <br>
-    <br>
-    <p id="instructions">You will be playing against a computer opponent in this Rock, Paper, Scissors game. The game will consist of three rounds, where the winner of two out of the three rounds will be the winner. You must choose one of three symbols, where each one beats another, and vice versa can lose to another.<br>You must choose rock, paper or scissors by clicking the respective button. Good luck!</p>
-    <button id="startGame">Start the game!</button>
-    <button id="reset">Reset</button>
-    <div id="roundTitle">Round</div>
-    <div id="yourScoreDiv"></div>
-    <div id="AIScoreDiv"></div>
-    <button class="symbol" id="rockButton">Rock</button>
-    <button class="symbol" id="paperButton">Paper</button>
-    <button class="symbol" id="scissorsButton">Scissors</button>
-    <div id="infoBox"></div>
+    <div class="header">Rock Paper Scissors Game</div>
+    <div class="welcomeAndInstructions">
+        <h2 id="welcome">Welcome to my first Rock, Paper, Scissors Game!</h2>
+        <h2 id="welcomeInfo">This game is to show case my javascript abilities that I have learned thus far. Hope you enjoy!</h2>
+        <br>
+        <br>
+        <p id="instructions">You will be playing against a computer opponent in this Rock, Paper, Scissors game. The game will consist of three rounds, where the winner of two out of the three rounds will be the winner. You must choose one of three symbols, where each one beats another, and vice versa can lose to another.<br>You must choose rock, paper or scissors by clicking the respective button. Good luck!</p>    
+    </div>
+    
+    <div class="startResetButtons">
+        <button id="startGame">Start the game!</button>
+        <button id="reset">Reset</button>
+    </div>
+
+    <div class="infoContainer">
+        <div id="roundTitle">Round</div>
+        <div class="scoresBox">
+            <div id="yourScoreDiv"></div>
+            <div id="AIScoreDiv"></div>    
+        </div>
+    </div>
+
+    <div class="buttonContainer">
+        <button class="symbol" id="rockButton">Rock</button>
+        <button class="symbol" id="paperButton">Paper</button>
+        <button class="symbol" id="scissorsButton">Scissors</button>
+    </div>
+
+    <div id="resultsBox"></div>
 </body>
 </html>
