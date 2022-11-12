@@ -82,16 +82,16 @@ window.onload = function () {//when the page loads, run the code
         }
     }
 
-    function giveScores(){//displays the scores in the score divs, as well as shows who won in the info div
+    function giveScores(){//this is the code that actually calculates how you win or lose. Also displays the scores in the score divs, as well as shows who won in the info div
         roundTitle.innerHTML = "Round " + round + "!";
         yourScoreDiv.innerHTML = "Player score: " + yourScore;
         AIScoreDiv.innerHTML = "AI Score: " + AIScore;
-        if (round >= 3 && (AIScore != 0 && yourScore != 0)){
-            if(yourScore > AIScore){//if it's the third round and your score is higher than the AI's, you win
+        if (round >= 2){
+            if(yourScore === 2){//if it's the third round you scored is higher than the AI's, you win
                 infoBox.innerHTML += "<br>" + " You win the game!";
                 buttonsOff();
             }
-            else if(yourScore < AIScore){//if it's the third round and your score is lower than the AI's, you lose
+            else if(AIScore === 2){//if it's the third round and your score is lower than the AI's, you lose
                 infoBox.innerHTML += "<br>" + " You lose the game!";
                 buttonsOff();
             }
